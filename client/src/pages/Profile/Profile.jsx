@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useProfile } from "../../hooks/useProfile";
-
+import PhotoUpload from "../../components/ui/PhotoUpload";
 export default function Profile() {
   const { profile, loading, update } = useProfile();
 
