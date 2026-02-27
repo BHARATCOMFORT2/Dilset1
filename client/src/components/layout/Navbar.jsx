@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { logout } from "../../firebase/auth";
-
+import { useNotifications } from "../../hooks/useNotifications";
+import Notifications from "../ui/Notifications";
+import { useState } from "react";
 export default function Navbar() {
   const { user } = useAuth();
 
