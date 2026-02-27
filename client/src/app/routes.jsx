@@ -15,6 +15,7 @@ import Marriage from "../pages/Marriage/Marriage";
 import Remarriage from "../pages/Remarriage/Remarriage";
 import Talk from "../pages/Talk/Talk";
 import Chat from "../pages/Chat/Chat";
+import ProfileView from "../pages/ProfileView/ProfileView";
 
 export default function AppRoutes() {
   return (
@@ -25,7 +26,7 @@ export default function AppRoutes() {
         {/* main */}
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
-
+<Route path="/user/:uid" element={<ProfileView />} />
         {/* modes */}
         <Route path="/random" element={<Random />} />
         <Route path="/dating" element={<Dating />} />
