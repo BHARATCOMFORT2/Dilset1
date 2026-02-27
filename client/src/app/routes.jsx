@@ -7,6 +7,8 @@ export default function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/dating" element={<Dating />} />
+        <Route path="/chat/:chatId" element={<Chat />} />
         <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
