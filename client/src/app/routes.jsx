@@ -1,12 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "../pages/Auth/Login";
 import Profile from "../pages/Profile/Profile";
+import Matches from "../pages/Dating/Matches";
 
-<Route path="/profile" element={<Profile />} />
+
 export default function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/matches" element={<Matches />} />
+<Route path="/profile" element={<Profile />} />
         <Route path="/dating" element={<Dating />} />
         <Route path="/chat/:chatId" element={<Chat />} />
         <Route path="/login" element={<Login />} />
