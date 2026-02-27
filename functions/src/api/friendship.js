@@ -1,6 +1,9 @@
 const functions = require("firebase-functions");
 const { sendRequest, acceptRequest } = require("../firestore/friends");
+const { notifyFriend } = require("../services/notificationService");
 
+await sendRequest(from, to);
+await notifyFriend(from, to);
 exports.addFriend = functions.https.onCall(async (data, context) => {
   const from = context.auth.uid;
   const to = data.to;
