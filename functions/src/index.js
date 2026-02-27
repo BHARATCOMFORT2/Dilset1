@@ -6,3 +6,5 @@ exports.addFriend = require("./api/friendship").addFriend;
 exports.acceptFriend = require("./api/friendship").acceptFriend;
 exports.sendMarriageInterest = require("./api/marriage").sendMarriageInterest;
 exports.acceptMarriage = require("./api/marriage").acceptMarriage;
+exports.sendRemarriageInterest = require("./api/remarriage").sendRemarriageInterest;
+exports.acceptRemarriage = require("./api/remarriage").acceptRemarriage;
