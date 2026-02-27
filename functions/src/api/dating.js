@@ -1,11 +1,17 @@
 const functions = require("firebase-functions");
 const { db } = require("../config/firebaseAdmin");
 const { createMatch } = require("../firestore/matches");
-
+const { notifyLike, notifyMatch } = require("../services/notificationService");
 exports.likeUser = functions.https.onCall(async (data, context) => {
   const from = context.auth.uid;
   const to = data.to;
+await notifyLike(from, to);
 
+if (reverse.exists) {
+  const matchId = await createMatch(from, to, "dating");
+  await notifyMatch(from, to);
+  return { match: true, matchId };
+}
   if (!to) throw new functions.https.HttpsError("invalid-argument");
 
   const likeRef = db.collection("likes").doc(`${from}_${to}`);
