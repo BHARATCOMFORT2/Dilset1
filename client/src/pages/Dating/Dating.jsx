@@ -3,7 +3,8 @@ import { db } from "../../firebase/config";
 import { collection, getDocs } from "firebase/firestore";
 import { useAuth } from "../../hooks/useAuth";
 import { useMatch } from "../../hooks/useMatch";
-
+import UserCard from "../../components/cards/UserCard";
+import { useMatch } from "../../hooks/useMatch";
 export default function Dating() {
   const { user } = useAuth();
   const { like, matchedUser } = useMatch();
@@ -35,7 +36,14 @@ export default function Dating() {
           <button onClick={() => like(p.id)}>❤️ Like</button>
         </div>
       ))}
-
+{profiles.map((p) => (
+  <UserCard
+    key={p.id}
+    profile={p}
+    actionLabel="❤️ Like"
+    onAction={like}
+  />
+))}
       {matchedUser && (
         <div style={{ background: "#ffdddd", padding: 10 }}>
           🎉 It's a match!
