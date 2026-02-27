@@ -8,6 +8,7 @@ export default function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/random" element={<Random />} />
         <Route path="/matches" element={<Matches />} />
 <Route path="/profile" element={<Profile />} />
         <Route path="/dating" element={<Dating />} />
