@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { db } from "../../firebase/config";
 import { collection, getDocs } from "firebase/firestore";
 import { useRemarriage } from "../../hooks/useRemarriage";
-
+import UserCard from "../../components/cards/UserCard";
+import { useRemarriage } from "../../hooks/useRemarriage";
 export default function Remarriage() {
   const [profiles, setProfiles] = useState([]);
   const { sendInterest } = useRemarriage();
@@ -25,7 +26,14 @@ export default function Remarriage() {
   return (
     <div style={{ padding: 20 }}>
       <h2>Remarriage Matches</h2>
-
+{profiles.map((p) => (
+  <UserCard
+    key={p.id}
+    profile={p}
+    actionLabel="Send Interest"
+    onAction={sendInterest}
+  />
+))}
       {profiles.map((p) => (
         <div key={p.id} style={{ border: "1px solid #ccc", margin: 10, padding: 10 }}>
           <h3>{p.name}</h3>
