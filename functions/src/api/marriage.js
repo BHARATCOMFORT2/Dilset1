@@ -1,6 +1,9 @@
 const functions = require("firebase-functions");
 const { sendInterest, acceptInterest } = require("../firestore/marriage");
+const { notifyMarriage } = require("../services/notificationService");
 
+await sendInterest(from, to);
+await notifyMarriage(from, to);
 exports.sendMarriageInterest = functions.https.onCall(async (data, context) => {
   const from = context.auth.uid;
   const to = data.to;
