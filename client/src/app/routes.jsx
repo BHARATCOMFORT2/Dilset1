@@ -16,7 +16,8 @@ import Remarriage from "../pages/Remarriage/Remarriage";
 import Talk from "../pages/Talk/Talk";
 import Chat from "../pages/Chat/Chat";
 import ProfileView from "../pages/ProfileView/ProfileView";
-
+import NotificationsPage from "../pages/Notifications/NotificationsPage";
+import Photos from "../pages/Profile/Photos";
 export default function AppRoutes() {
   return (
     <BrowserRouter>
@@ -38,7 +39,8 @@ export default function AppRoutes() {
         {/* social */}
         <Route path="/matches" element={<Matches />} />
         <Route path="/chat/:chatId" element={<Chat />} />
-
+<Route path="/notifications" element={<NotificationsPage />} />
+<Route path="/photos" element={<Photos />} />
         {/* user */}
         <Route path="/profile" element={<Profile />} />
       </Routes>
