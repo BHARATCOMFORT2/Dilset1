@@ -21,3 +21,14 @@ exports.getAdminStats =
   require("./api/admin").getAdminStats;
 exports.blockUser =
   require("./api/admin").blockUser;
+exports.onMatchCreate =
+  require("./triggers/onMatchCreate").onMatchCreate;
+
+exports.onMatchNotification =
+  require("./triggers/onMatchNotification").onMatchNotification;
+
+exports.onMessageNotification =
+  require("./triggers/onMessageNotification").onMessageNotification;
+
+exports.onPresenceUpdate =
+  require("./triggers/onPresenceUpdate").onPresenceUpdate;
