@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
-import { db } from "../firebase/config";
+import { db, functions } from "../firebase/config";
 import { collection, query, where, onSnapshot } from "firebase/firestore";
 import { useAuth } from "./useAuth";
+import { httpsCallable } from "firebase/functions";
+
+const markReadFn = httpsCallable(functions, "markNotificationRead");
 
 export const useNotifications = () => {
   const { user } = useAuth();
@@ -24,5 +27,11 @@ export const useNotifications = () => {
     return () => unsub();
   }, [user]);
 
-  return notifications;
+  const markRead = async (id) => {
+    await markReadFn({ id });
+  };
+
+  const unreadCount = notifications.filter((n) => !n.read).length;
+
+  return { notifications, unreadCount, markRead };
 };
