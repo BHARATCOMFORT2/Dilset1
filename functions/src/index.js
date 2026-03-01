@@ -12,3 +12,12 @@ exports.markNotificationRead =
   require("./api/notifications").markNotificationRead;
 exports.onUserStatusChange =
   require("./triggers/presence").onUserStatusChange;
+exports.swipe = require("./api/swipe").swipe;
+exports.approveVerification =
+  require("./api/verification").approveVerification;
+exports.rejectVerification =
+  require("./api/verification").rejectVerification;
+exports.getAdminStats =
+  require("./api/admin").getAdminStats;
+exports.blockUser =
+  require("./api/admin").blockUser;
