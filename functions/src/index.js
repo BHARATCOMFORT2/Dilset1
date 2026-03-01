@@ -32,3 +32,8 @@ exports.onMessageNotification =
 
 exports.onPresenceUpdate =
   require("./triggers/onPresenceUpdate").onPresenceUpdate;
+exports.createOrder = require("./api/payments").createOrder;
+exports.verifyPayment = require("./api/payments").verifyPayment;
+
+exports.createReport = require("./api/reports").createReport;
+exports.resolveReport = require("./api/reports").resolveReport;
