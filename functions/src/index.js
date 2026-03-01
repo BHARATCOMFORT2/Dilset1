@@ -8,3 +8,5 @@ exports.sendMarriageInterest = require("./api/marriage").sendMarriageInterest;
 exports.acceptMarriage = require("./api/marriage").acceptMarriage;
 exports.sendRemarriageInterest = require("./api/remarriage").sendRemarriageInterest;
 exports.acceptRemarriage = require("./api/remarriage").acceptRemarriage;
+exports.markNotificationRead =
+  require("./api/notifications").markNotificationRead;
