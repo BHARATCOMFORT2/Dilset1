@@ -10,3 +10,5 @@ exports.sendRemarriageInterest = require("./api/remarriage").sendRemarriageInter
 exports.acceptRemarriage = require("./api/remarriage").acceptRemarriage;
 exports.markNotificationRead =
   require("./api/notifications").markNotificationRead;
+exports.onUserStatusChange =
+  require("./triggers/presence").onUserStatusChange;
