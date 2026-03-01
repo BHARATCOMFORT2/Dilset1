@@ -2,7 +2,7 @@ import { useNotifications } from "../../hooks/useNotifications";
 import { Link } from "react-router-dom";
 
 export default function NotificationsPage() {
-  const notifications = useNotifications();
+  const { notifications, markRead } = useNotifications();
 
   if (!notifications.length) {
     return <div style={{ padding: 20 }}>No notifications</div>;
@@ -18,6 +18,7 @@ export default function NotificationsPage() {
           style={{
             borderBottom: "1px solid #eee",
             padding: 10,
+            background: n.read ? "#fff" : "#f5f9ff",
             display: "flex",
             justifyContent: "space-between"
           }}
@@ -29,7 +30,10 @@ export default function NotificationsPage() {
             {n.type === "marriage" && <span>💍 Marriage interest</span>}
           </div>
 
-          <Link to={`/user/${n.from}`}>
+          <Link
+            to={`/user/${n.from}`}
+            onClick={() => markRead(n.id)}
+          >
             <button>View</button>
           </Link>
         </div>
