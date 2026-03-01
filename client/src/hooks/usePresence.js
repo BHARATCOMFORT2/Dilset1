@@ -1,23 +1,21 @@
 import { useEffect } from "react";
 import { db } from "../firebase/config";
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import { useAuth } from "./useAuth";
 
 export const usePresence = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    if (!user) return;
+    if (!user?.uid) return;
 
-    const ref = doc(db, "users", user.uid);
+    const ref = doc(db, "presence", user.uid);
 
-    const setOnline = () => {
-      updateDoc(ref, { online: true });
-    };
+    const setOnline = () =>
+      setDoc(ref, { online: true, updatedAt: Date.now() });
 
-    const setOffline = () => {
-      updateDoc(ref, { online: false });
-    };
+    const setOffline = () =>
+      setDoc(ref, { online: false, updatedAt: Date.now() });
 
     setOnline();
 
